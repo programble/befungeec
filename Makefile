@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES=main.c stack.c
+SOURCES=main.c stack.c pointer.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=befungeec
 
