@@ -27,5 +27,6 @@ void stack_push(stack*, char);
 char stack_pop(stack*);
 char stack_peek(stack*);
 int stack_length(stack*);
+int stack_empty(stack*);
 
 #endif

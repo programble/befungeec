@@ -57,3 +57,8 @@ int stack_length(stack *s)
     }
     return i;
 }
+
+int stack_empty(stack *s)
+{
+    return (!s->top);
+}
