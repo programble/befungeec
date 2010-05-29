@@ -14,7 +14,7 @@ stack *stack_new()
     return s;
 }
 
-void stack_push(stack *s, void *value)
+void stack_push(stack *s, char value)
 {
     stack_item *item = malloc(sizeof(stack_item));
     if (s->top)
@@ -31,16 +31,16 @@ void stack_push(stack *s, void *value)
     }
 }
 
-void *stack_pop(stack *s)
+char stack_pop(stack *s)
 {
     stack_item *item = s->top;
     s->top = item->next;
-    void *value = item->value;
+    char value = item->value;
     free(item);
     return value;
 }
 
-void *stack_peek(stack *s)
+char stack_peek(stack *s)
 {
     stack_item *item = s->top;
     return item->value;

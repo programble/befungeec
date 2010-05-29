@@ -13,7 +13,7 @@
 typedef struct stack_item
 {
     struct stack_item *next;
-    void *value;
+    char value;
 } stack_item;
 
 typedef struct stack
@@ -23,9 +23,9 @@ typedef struct stack
 
 stack *stack_new();
 
-void stack_push(stack*, void*);
-void *stack_pop(stack*);
-void *stack_peek(stack*);
+void stack_push(stack*, char);
+char stack_pop(stack*);
+char stack_peek(stack*);
 int stack_length(stack*);
 
 #endif
