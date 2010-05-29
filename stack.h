@@ -26,5 +26,6 @@ stack *stack_new();
 void stack_push(stack*, void*);
 void *stack_pop(stack*);
 void *stack_peek(stack*);
+int stack_length(stack*);
 
 #endif

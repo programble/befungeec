@@ -45,3 +45,15 @@ void *stack_peek(stack *s)
     stack_item *item = s->top;
     return item->value;
 }
+
+int stack_length(stack *s)
+{
+    stack_item *item = s->top;
+    int i = 0;
+    while (item)
+    {
+        i++;
+        item = item->next;
+    }
+    return i;
+}
