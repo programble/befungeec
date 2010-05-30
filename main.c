@@ -213,15 +213,43 @@ void process(board *board)
 
 int main(int argc, char **argv)
 {
-#ifdef DEBUG
     board *board = board_new();
-    char data[] = "025*\"!dlroW ,olleH\">:#,_@";
-    int i;
-    for (i = 0; i < 25; i++)
+    FILE *f;
+    if (argc == 1)
     {
-        board_put(board, i, 0, data[i]);
+        f = stdin;
+    }
+    else
+    {
+        FILE *f = fopen(argv[1], "r");
+        if (f == NULL)
+        {
+            perror("open");
+            return 1;
+        }
+    }
+    char c;
+    int x = 0;
+    int y = 0;
+    while ((c = fgetc(f)) != EOF)
+    {
+        if (c == '\n')
+        {
+            y++;
+            x = 0;
+            continue;
+        }
+        else
+        {
+            board_put(board, x, y, c);
+        }
+        x++;
+        if (x > BOARD_WIDTH || y > BOARD_HEIGHT)
+        {
+            fprintf(stderr, "Error: File too large (%i, %i)", x, y);
+            return 1;
+        }
     }
     process(board);
-#endif
     return 0;
 }
