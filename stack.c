@@ -33,17 +33,31 @@ void stack_push(stack *s, char value)
 
 char stack_pop(stack *s)
 {
-    stack_item *item = s->top;
-    s->top = item->next;
-    char value = item->value;
-    free(item);
-    return value;
+    if (s->top)
+    {
+        stack_item *item = s->top;
+        s->top = item->next;
+        char value = item->value;
+        free(item);
+        return value;
+    }
+    else
+    {
+        return 0x0;
+    }
 }
 
 char stack_peek(stack *s)
 {
-    stack_item *item = s->top;
-    return item->value;
+    if (s->top)
+    {
+        stack_item *item = s->top;
+        return item->value;
+    }
+    else
+    {
+        return 0x0;
+    }
 }
 
 int stack_length(stack *s)

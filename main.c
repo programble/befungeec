@@ -260,12 +260,12 @@ int main(int argc, char **argv)
         {
             board_put(board, x, y, c);
         }
-        x++;
         if (x > BOARD_WIDTH || y > BOARD_HEIGHT)
         {
             fprintf(stderr, "Error: File too large (%i, %i)", x, y);
             return 1;
         }
+        x++;
     }
     if (f != stdin)
     {
