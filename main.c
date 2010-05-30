@@ -215,13 +215,13 @@ int main(int argc, char **argv)
 {
     board *board = board_new();
     FILE *f;
-    if (argc == 1)
+    if (argc < 2)
     {
         f = stdin;
     }
     else
     {
-        FILE *f = fopen(argv[1], "r");
+        f = fopen(argv[1], "r");
         if (f == NULL)
         {
             perror("open");
@@ -249,6 +249,10 @@ int main(int argc, char **argv)
             fprintf(stderr, "Error: File too large (%i, %i)", x, y);
             return 1;
         }
+    }
+    if (f != stdin)
+    {
+        fclose(f);
     }
     process(board);
     return 0;
