@@ -120,6 +120,7 @@ void process(board *board)
                 board->pointer->dy = 1;
                 break;
             }
+            break;
         }
         case '_':
         {
