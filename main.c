@@ -208,6 +208,22 @@ void process(board *board)
         }
         }
         pointer_move(board->pointer);
+        if (board->pointer->x < 0)
+        {
+            board->pointer->x += BOARD_WIDTH;
+        }
+        if (board->pointer->x >= BOARD_WIDTH)
+        {
+            board->pointer->x -= BOARD_WIDTH;
+        }
+        if (board->pointer->y < 0)
+        {
+            board->pointer->y += BOARD_HEIGHT;
+        }
+        if (board->pointer->y >= BOARD_HEIGHT)
+        {
+            board->pointer->y -= BOARD_HEIGHT;
+        }
     }
 }
 
