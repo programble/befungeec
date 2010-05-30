@@ -27,7 +27,7 @@ char board_get(board *b, int x, int y)
     return b->data[y][x];
 }
 
-void board_set(board *b, int x, int y, char value)
+void board_put(board *b, int x, int y, char value)
 {
     b->data[y][x] = value;
 }
